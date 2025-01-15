@@ -1,0 +1,57 @@
+{
+	"name": "Appnd variable activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "fileNames",
+					"value": "d.csv"
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "output",
+					"value": {
+						"value": "@variables('fileNames')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"fileNames": {
+				"type": "Array",
+				"defaultValue": [
+					"a.csv",
+					"b.csv"
+				]
+			},
+			"output": {
+				"type": "Array"
+			}
+		},
+		"folder": {
+			"name": "01_exploring_adf"
+		},
+		"annotations": []
+	}
+}
