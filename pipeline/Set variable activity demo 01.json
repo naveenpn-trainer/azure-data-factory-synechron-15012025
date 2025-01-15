@@ -1,0 +1,82 @@
+{
+	"name": "Set variable activity demo 01",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set length",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "length",
+					"value": "20"
+				}
+			},
+			{
+				"name": "Set breadth",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "breadth",
+					"value": "30"
+				}
+			},
+			{
+				"name": "Set area",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set length",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Set breadth",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "area",
+					"value": {
+						"value": "@{mul(int(variables('length')),int(variables('breadth')))}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"length": {
+				"type": "String"
+			},
+			"breadth": {
+				"type": "String"
+			},
+			"area": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "01_exploring_adf"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-01-15T10:08:41Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

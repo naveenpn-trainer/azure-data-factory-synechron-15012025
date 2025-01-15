@@ -1,0 +1,9 @@
+{
+	"name": "df-ws-synechron",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "47af1097-b635-4d43-a665-1160696bf5df",
+		"tenantId": "d47baec4-11f3-4461-917e-a7214d68dde5"
+	}
+}
