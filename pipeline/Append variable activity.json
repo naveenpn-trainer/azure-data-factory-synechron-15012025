@@ -1,0 +1,17 @@
+{
+	"name": "Append variable activity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"folder": {
+			"name": "01_exploring_adf"
+		},
+		"annotations": []
+	}
+}
