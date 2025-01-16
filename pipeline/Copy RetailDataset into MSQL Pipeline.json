@@ -1,9 +1,9 @@
 {
-	"name": "Copy Customers Dataset into MSQL Pipeline",
+	"name": "Copy RetailDataset into MSQL Pipeline",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy customers dataset into customers table",
+				"name": "Copy customers dataset",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -28,10 +28,8 @@
 					},
 					"sink": {
 						"type": "AzureSqlSink",
-						"preCopyScript": "truncate table dbo.customer",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false,
-						"disableMetricsCollection": false
+						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
 					"translator": {
@@ -39,7 +37,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "customer_id",
+									"name": "customer_id|customer_name|dob|email|gender|country|region|city|asset|marital_status",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -50,11 +48,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "customer_name",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "name",
 									"type": "String",
@@ -62,11 +55,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "email",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "email",
 									"type": "String",
@@ -74,11 +62,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "gender",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "gender",
 									"type": "String",
@@ -86,11 +69,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "dob",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "dob",
 									"type": "DateTime",
@@ -98,11 +76,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "country",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "country",
 									"type": "String",
@@ -110,11 +83,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "region",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "region",
 									"type": "String",
@@ -122,11 +90,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "city",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "city",
 									"type": "String",
@@ -134,11 +97,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "asset",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "asset",
 									"type": "Int64",
@@ -146,11 +104,6 @@
 								}
 							},
 							{
-								"source": {
-									"name": "marital_status",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "marital_status",
 									"type": "String",
@@ -167,14 +120,21 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_ADLS_azurestgacctraining_retaildb_customers",
-						"type": "DatasetReference"
+						"referenceName": "DS_ADLS",
+						"type": "DatasetReference",
+						"parameters": {
+							"ContainerName": "retaildb",
+							"DirectoryName": "customers/"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ASQL_retaildb_customers",
-						"type": "DatasetReference"
+						"referenceName": "DS_ASQL",
+						"type": "DatasetReference",
+						"parameters": {
+							"TableName": "customer"
+						}
 					}
 				]
 			}
