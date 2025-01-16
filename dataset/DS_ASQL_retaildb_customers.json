@@ -1,0 +1,16 @@
+{
+	"name": "DS_ASQL_retaildb_customers",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL_retaildb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "customer"
+		}
+	}
+}
