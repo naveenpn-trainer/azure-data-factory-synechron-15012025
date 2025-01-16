@@ -171,7 +171,8 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"ContainerName": "retaildb",
-							"DirectoryName": "customers/"
+							"DirectoryName": "customers",
+							"FileName": "customers.csv"
 						}
 					}
 				],
@@ -282,7 +283,8 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"ContainerName": "retaildb",
-							"DirectoryName": "employees"
+							"DirectoryName": "employees",
+							"FileName": "employees.csv"
 						}
 					}
 				],
