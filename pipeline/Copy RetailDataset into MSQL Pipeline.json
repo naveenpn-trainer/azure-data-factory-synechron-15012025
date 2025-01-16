@@ -36,11 +36,6 @@
 						"type": "TabularTranslator",
 						"mappings": [
 							{
-								"source": {
-									"name": "customer_id|customer_name|dob|email|gender|country|region|city|asset|marital_status",
-									"type": "String",
-									"physicalType": "String"
-								},
 								"sink": {
 									"name": "id",
 									"type": "Int32",
@@ -55,6 +50,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "email",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "email",
 									"type": "String",
@@ -62,6 +62,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "gender",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "gender",
 									"type": "String",
@@ -69,6 +74,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "dob",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "dob",
 									"type": "DateTime",
@@ -76,6 +86,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "country",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "country",
 									"type": "String",
@@ -83,6 +98,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "region",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "region",
 									"type": "String",
@@ -90,6 +110,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "city",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "city",
 									"type": "String",
@@ -97,6 +122,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "asset",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "asset",
 									"type": "Int64",
@@ -104,6 +134,11 @@
 								}
 							},
 							{
+								"source": {
+									"name": "marital_status",
+									"type": "String",
+									"physicalType": "String"
+								},
 								"sink": {
 									"name": "marital_status",
 									"type": "String",
