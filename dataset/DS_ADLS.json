@@ -11,9 +11,6 @@
 			},
 			"DirectoryName": {
 				"type": "string"
-			},
-			"FileName": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -21,10 +18,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().FileName",
-					"type": "Expression"
-				},
 				"folderPath": {
 					"value": "@dataset().DirectoryName",
 					"type": "Expression"
